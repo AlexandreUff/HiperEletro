@@ -1,0 +1,17 @@
+/* header.container-fluid img {
+    max-width: 300px;
+} */
+
+.main-nav ul > li, main aside > nav > ul > li {
+    list-style: none;
+}
+
+main aside > nav > ul {
+    font-size: 0.8rem;
+    padding-left: 5px;
+}
+
+.produto {
+    width: 200px;
+    margin: 10px 0px;
+}
