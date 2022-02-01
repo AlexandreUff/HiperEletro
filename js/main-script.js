@@ -52,20 +52,37 @@ class Produto {
         return this.preco
     }
 
-    get getImg(){
-        return this.img
+    get getImgGrande(){
+        return this.img[0]
+    }
+
+    get getImgPequena(){
+        return this.img[1]
     }
 
 }
 
 const prateleiraProdutos = []
 
-prateleiraProdutos.push(new Produto(
+function insereProdutosNaPrateleira(produto) {
+    prateleiraProdutos.push(produto);
+}
+
+insereProdutosNaPrateleira(new Produto(
     "0001",
     "MX-Gold Premium V9.5",
     199.99,
-    "./design/imgs-produtos/200x136/pexels-kinkate-205926.jpg"
-))
+    ["./design/imgs-produtos/200x136/pexels-kinkate-205926.jpg","./design/imgs-produtos/100x68/pexels-kinkate-205926.jpg"]
+));
+
+insereProdutosNaPrateleira(new Produto(
+    "0002",
+    "Router Turbo TecBuild 77",
+    149.99,
+    ["./design/imgs-produtos/200x136/pexels-aditya-singh-4218546.jpg","./design/imgs-produtos/100x68/pexels-aditya-singh-4218546.jpg"]
+));
+
+
 
 //Inserção dos protudos na DOM
 const areaProdutos = take('#area-produtos');
@@ -78,7 +95,7 @@ function geraProduto(produto) {
 
     const imagem = document.createElement('img');
     imagem.classList.add('card-img-top');
-    imagem.src = produto.getImg;
+    imagem.src = produto.getImgGrande;
     imagem.alt = `${produto.getNome} por ${produto.getPreco}`;
 
     const cardBody = document.createElement('div');
@@ -129,6 +146,11 @@ function geraProduto(produto) {
         addProdutoNoCarrinho(produto);
         this.setAttribute("aria-disabled","true");
         this.classList.add('disabled');
+        numProdsNoCarrinho++
+        mostraProdsNoCarrinho.innerText = `${numProdsNoCarrinho}`;
+
+        if(numProdsNoCarrinho) iconeCarrinho.classList.add('position-right');
+
     }
 
     cardBody.appendChild(titulo);
@@ -145,12 +167,24 @@ function geraProduto(produto) {
 
 
 function insereProdutos() {
-    const prod = geraProduto(prateleiraProdutos[0]);
-    areaProdutos.appendChild(prod);
+    for (novoProduto of prateleiraProdutos){
+        const prod = geraProduto(novoProduto);
+        areaProdutos.appendChild(prod);
+    }
 }
 insereProdutos();
 
+
+//Inserção de produtos no carrinho
 const carrinhoDeProdutos = [];
+const iconeCarrinho = take('#icone-carrinho');
+iconeCarrinho.onclick = function() {
+    this.classList.remove('position-right');
+}
+
+let numProdsNoCarrinho = 0;
+
+const mostraProdsNoCarrinho = take('#num-prods-no-carrinho');
 
 function addProdutoNoCarrinho(prodNoCarrinho) {
     carrinhoDeProdutos.push(prodNoCarrinho);
