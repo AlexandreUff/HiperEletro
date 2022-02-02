@@ -181,13 +181,20 @@
         <p id="num-prods-no-carrinho">0</p>
     </div>
 
-    <div class="caixa-carrinho bg-light border border-secondary">
+    <div id="caixa-itens-carrinho" class="caixa-carrinho bg-light border border-secondary shadow">
         <p class="bg-secondary text-white text-center">MEU CARRINHO</p>
         <button id="botao-fechar-carrinho" class="btn btn-dark" type="submit">>></button>
 
         <div id="area-produtos-do-carrinho">
-            
+            <div class="card">
+                <div class="card-body d-flex p-1 align-items-center">
+                  <img src="./design/imgs-produtos/100x68/pexels-kinkate-205926.jpg" width="50px" height="39px" alt="Imagem do produto">
+                  <div>MX-Gold Premium V9.5</div>
+                </div>
+                <button type="button" class="btn btn-danger botao-remover-do-carrinho">x</button>
+            </div>
         </div>
+        <!--FINALIZAR COMPRA-->
     </div>
 </body>
 

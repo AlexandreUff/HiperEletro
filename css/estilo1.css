@@ -33,15 +33,6 @@ main aside > nav > ul {
     transition: 0.25s;
 }
 
-.position-right{
-    right: 0px;
-}
-
-.carrinho-fixed:hover {
-    transform: scale(1.2);
-    transition: 0.25s;
-}
-
 .carrinho-fixed > img {
     width: 50px;
 }
@@ -75,11 +66,50 @@ main aside > nav > ul {
     
     position: fixed;
     top: 150px;
-    right: 0px;
+    right: -300px;
+
+    transition: 0.25s;
 }
 
 #botao-fechar-carrinho{
     position: absolute;
     top: -7px;
     right: -1px;
+    transition: 0.25s;
+}
+
+#area-produtos-do-carrinho{
+    max-height: 100%;
+    padding: 4px;
+    padding-right: 10px;
+    background-color: blueviolet; /* ESTE DEVE SER REMOVIDO*/
+}
+
+.botao-remover-do-carrinho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 0px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 11px;
+    right: -11px;
+}
+
+.imagem-miniatura-carrinho{
+    width: 50px;
+    height: 39px;
+}
+
+/*--------------------Manter este item ao final-------------------*/
+.position-right{
+    right: 0px;
+}
+
+.carrinho-fixed:hover, #botao-fechar-carrinho:hover {
+    transform: scale(1.2);
+    transition: 0.25s;
 }

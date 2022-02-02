@@ -133,6 +133,7 @@ function geraProduto(produto) {
     botaoCompra.innerHTML = 'Comprar';
 
     const botaoCarrinho = document.createElement('a');
+    botaoCarrinho.id = `btn-ref-prod-${produto.getId}`;
     botaoCarrinho.classList.add('btn');
     botaoCarrinho.classList.add('btn-primary');
     botaoCarrinho.classList.add('mx-1');
@@ -146,10 +147,9 @@ function geraProduto(produto) {
         addProdutoNoCarrinho(produto);
         this.setAttribute("aria-disabled","true");
         this.classList.add('disabled');
-        numProdsNoCarrinho++
-        mostraProdsNoCarrinho.innerText = `${numProdsNoCarrinho}`;
+        mostraProdsNoCarrinho.innerText = `${carrinhoDeProdutos.length}`;
 
-        if(numProdsNoCarrinho) iconeCarrinho.classList.add('position-right');
+        if(carrinhoDeProdutos.length && !caixaDeItensDoCarrinho.classList.contains('position-right')) iconeCarrinho.classList.add('position-right');
 
     }
 
@@ -176,16 +176,75 @@ insereProdutos();
 
 
 //Inserção de produtos no carrinho
-const carrinhoDeProdutos = [];
+let carrinhoDeProdutos = [];
 const iconeCarrinho = take('#icone-carrinho');
 iconeCarrinho.onclick = function() {
     this.classList.remove('position-right');
+    caixaDeItensDoCarrinho.classList.add('position-right');
 }
 
-let numProdsNoCarrinho = 0;
+const caixaDeItensDoCarrinho = take('#caixa-itens-carrinho');
+const botaoFechaItensDoCarrinho = take('#botao-fechar-carrinho');
+botaoFechaItensDoCarrinho.onclick = () => {
+    caixaDeItensDoCarrinho.classList.remove('position-right');
+    if(carrinhoDeProdutos.length) iconeCarrinho.classList.add('position-right');
+}
+
+const areaDeExibicaoItensCarrinho = take('#area-produtos-do-carrinho');
+
+function insereProdutosNaAreaDeExibicao(prodCar) {
+    const card = document.createElement('div');
+    card.classList.add('card','my-1');
+
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card-body', 'd-flex', 'p-1', 'align-items-center');
+
+    const imagem = document.createElement('img');
+    imagem.classList.add('imagem-miniatura-carrinho');
+    imagem.src = prodCar.getImgPequena;
+    imagem.alt = "Imagem do produto";
+
+    const nomeProd = document.createElement('div');
+    nomeProd.innerText = prodCar.getNome;
+
+    const botaoFechar = document.createElement('button');
+    botaoFechar.classList.add('btn', 'btn-danger', 'botao-remover-do-carrinho');
+    botaoFechar.innerText = 'x';
+    botaoFechar.onclick = function(){
+        this.parentNode.remove();
+        carrinhoDeProdutos = carrinhoDeProdutos.filter(indice => {
+                    return indice.getId !== prodCar.getId
+                });
+        mostraProdsNoCarrinho.innerText = `${carrinhoDeProdutos.length}`;
+
+        //Abaixo, seguem os métodos para reativar o botão de add ao carrinho no card
+        botaoCarrinho = take(`#btn-ref-prod-${prodCar.getId}`);
+        botaoCarrinho.classList.remove('disabled');
+        botaoCarrinho.removeAttribute("aria-disabled");
+    }
+
+    cardBody.appendChild(imagem);
+    cardBody.appendChild(nomeProd);
+
+    card.appendChild(cardBody);
+    card.appendChild(botaoFechar);
+
+    return card;
+}
 
 const mostraProdsNoCarrinho = take('#num-prods-no-carrinho');
 
 function addProdutoNoCarrinho(prodNoCarrinho) {
     carrinhoDeProdutos.push(prodNoCarrinho);
+    areaDeExibicaoItensCarrinho.appendChild( insereProdutosNaAreaDeExibicao(carrinhoDeProdutos[carrinhoDeProdutos.length-1]) );
 }
+
+/*
+Para o próximo commit:
+- Inserção da funcionalidade de exibir os produtos no carrinho e também de removê-los;
+- A funcionalidade acima faz alterações no array "carrinhoDeProdutos" removendo todo o objeto por meio de seu id;
+- O botão de 'exibir carrinho' só aparece caso haja no min. 1 produto adicionado. Se não houver, o carrinho não é exibido;
+- Assim que um produto é removido, o botão no card dos produtos de "Adicionar ao carrinho" é reabilitado.
+
+Obs: No último commit, também foi inserido o favicon da página.
+ */
