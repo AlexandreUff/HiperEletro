@@ -82,7 +82,75 @@ insereProdutosNaPrateleira(new Produto(
     ["./design/imgs-produtos/200x136/pexels-aditya-singh-4218546.jpg","./design/imgs-produtos/100x68/pexels-aditya-singh-4218546.jpg"]
 ));
 
+insereProdutosNaPrateleira(new Produto(
+    "0003",
+    "Joystick PS5 Wireless",
+    399.99,
+    ["./design/imgs-produtos/200x136/pexels-cottonbro-3945659.jpg","./design/imgs-produtos/100x68/pexels-cottonbro-3945659.jpg"]
+));
 
+insereProdutosNaPrateleira(new Produto(
+    "0004",
+    "iPhone Beta 5",
+    2899.99,
+    ["./design/imgs-produtos/200x136/pexels-jess-bailey-designs-788946.jpg","./design/imgs-produtos/100x68/pexels-jess-bailey-designs-788946.jpg"]
+));
+
+insereProdutosNaPrateleira(new Produto(
+    "0005",
+    "iPad Generic X",
+    3199.99,
+    ["./design/imgs-produtos/200x136/pexels-josh-sorenson-1334598.jpg","./design/imgs-produtos/100x68/pexels-josh-sorenson-1334598.jpg"]
+));
+
+insereProdutosNaPrateleira(new Produto(
+    "0006",
+    "Notebook Low Hardware 3",
+    539.99,
+    ["./design/imgs-produtos/200x136/pexels-karsten-madsen-18105.jpg","./design/imgs-produtos/100x68/pexels-karsten-madsen-18105.jpg"]
+));
+
+insereProdutosNaPrateleira(new Produto(
+    "0007",
+    "Groove Master LP11",
+    1999.99,
+    ["./design/imgs-produtos/200x136/pexels-lilartsy-4717873.jpg","./design/imgs-produtos/100x68/pexels-lilartsy-4717873.jpg"]
+));
+
+insereProdutosNaPrateleira(new Produto(
+    "0008",
+    "Keyboard SoftHand Pro",
+    99.99,
+    ["./design/imgs-produtos/200x136/pexels-olenka-sergienko-1772123.jpg","./design/imgs-produtos/100x68/pexels-olenka-sergienko-1772123.jpg"]
+));
+
+insereProdutosNaPrateleira(new Produto(
+    "0009",
+    "Lazy Boy Headphone 4C",
+    299.99,
+    ["./design/imgs-produtos/200x136/pexels-sound-on-3394650.jpg","./design/imgs-produtos/100x68/pexels-sound-on-3394650.jpg"]
+));
+
+insereProdutosNaPrateleira(new Produto(
+    "0010",
+    "TecSound Player 2020",
+    129.99,
+    ["./design/imgs-produtos/200x136/pexels-sound-on-3394666.jpg","./design/imgs-produtos/100x68/pexels-sound-on-3394666.jpg"]
+));
+
+insereProdutosNaPrateleira(new Produto(
+    "0011",
+    "Old School Recorder 1980",
+    9.99,
+    ["./design/imgs-produtos/200x136/pexels-stas-knop-1228497.jpg","./design/imgs-produtos/100x68/pexels-stas-knop-1228497.jpg"]
+));
+
+insereProdutosNaPrateleira(new Produto(
+    "0012",
+    "Notebook BadTools 2005",
+    739.99,
+    ["./design/imgs-produtos/200x136/pexels-tuur-tisseghem-812264.jpg","./design/imgs-produtos/100x68/pexels-tuur-tisseghem-812264.jpg"]
+));
 
 //Inserção dos protudos na DOM
 const areaProdutos = take('#area-produtos');
@@ -194,7 +262,7 @@ const areaDeExibicaoItensCarrinho = take('#area-produtos-do-carrinho');
 
 function insereProdutosNaAreaDeExibicao(prodCar) {
     const card = document.createElement('div');
-    card.classList.add('card','my-1');
+    card.classList.add('card','my-2');
 
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body', 'd-flex', 'p-1', 'align-items-center');
@@ -205,6 +273,7 @@ function insereProdutosNaAreaDeExibicao(prodCar) {
     imagem.alt = "Imagem do produto";
 
     const nomeProd = document.createElement('div');
+    nomeProd.classList.add('mx-1');
     nomeProd.innerText = prodCar.getNome;
 
     const botaoFechar = document.createElement('button');
@@ -238,13 +307,3 @@ function addProdutoNoCarrinho(prodNoCarrinho) {
     carrinhoDeProdutos.push(prodNoCarrinho);
     areaDeExibicaoItensCarrinho.appendChild( insereProdutosNaAreaDeExibicao(carrinhoDeProdutos[carrinhoDeProdutos.length-1]) );
 }
-
-/*
-Para o próximo commit:
-- Inserção da funcionalidade de exibir os produtos no carrinho e também de removê-los;
-- A funcionalidade acima faz alterações no array "carrinhoDeProdutos" removendo todo o objeto por meio de seu id;
-- O botão de 'exibir carrinho' só aparece caso haja no min. 1 produto adicionado. Se não houver, o carrinho não é exibido;
-- Assim que um produto é removido, o botão no card dos produtos de "Adicionar ao carrinho" é reabilitado.
-
-Obs: No último commit, também foi inserido o favicon da página.
- */

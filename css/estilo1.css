@@ -79,10 +79,10 @@ main aside > nav > ul {
 }
 
 #area-produtos-do-carrinho{
-    max-height: 100%;
+    max-height: 68%;
     padding: 4px;
     padding-right: 10px;
-    background-color: blueviolet; /* ESTE DEVE SER REMOVIDO*/
+    overflow-y: scroll;
 }
 
 .botao-remover-do-carrinho{
@@ -102,6 +102,11 @@ main aside > nav > ul {
 .imagem-miniatura-carrinho{
     width: 50px;
     height: 39px;
+}
+
+#finalizar-carrinho{
+    position: absolute;
+    bottom: 0px;
 }
 
 /*--------------------Manter este item ao final-------------------*/
