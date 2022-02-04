@@ -69,6 +69,7 @@ main aside > nav > ul {
     right: -300px;
 
     transition: 0.25s;
+    z-index: 2;
 }
 
 #botao-fechar-carrinho{
@@ -107,6 +108,12 @@ main aside > nav > ul {
 #finalizar-carrinho{
     position: absolute;
     bottom: 0px;
+}
+
+#botao-filtro {
+    position: sticky;
+    top: 10px;
+    z-index: 1;
 }
 
 /*--------------------Manter este item ao final-------------------*/
