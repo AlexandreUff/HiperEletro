@@ -1,3 +1,4 @@
+(function(){
 //Funções básicas do projeto
 function take(query) {
     return document.querySelector(query);
@@ -160,6 +161,7 @@ function geraProduto(produto) {
     card.classList.add('card');
     card.classList.add('produto');
     card.style = 'width: 18rem;';
+    card.title = produto.getNome;
 
     const imagem = document.createElement('img');
     imagem.classList.add('card-img-top');
@@ -197,6 +199,7 @@ function geraProduto(produto) {
     const botaoCompra = document.createElement('a');
     botaoCompra.classList.add('btn');
     botaoCompra.classList.add('btn-success');
+    botaoCompra.title = `Comprar ${produto.getNome}`
     botaoCompra.href = '#';
     botaoCompra.innerHTML = 'Comprar';
 
@@ -208,8 +211,8 @@ function geraProduto(produto) {
 
     iconCarrinho = '<img src="./design/local_grocery_store_white_24dp.svg" alt="Carrinho">';
 
-    botaoCarrinho.href = '#';
     botaoCarrinho.innerHTML = iconCarrinho;
+    botaoCarrinho.title = `Adicionar ${produto.getNome} ao Carrinho`
 
     botaoCarrinho.onclick = function() {
         addProdutoNoCarrinho(produto);
@@ -262,6 +265,7 @@ const areaDeExibicaoItensCarrinho = take('#area-produtos-do-carrinho');
 
 function insereProdutosNaAreaDeExibicao(prodCar) {
     const card = document.createElement('div');
+    card.title = prodCar.getNome
     card.classList.add('card','my-2');
 
     const cardBody = document.createElement('div');
@@ -279,6 +283,7 @@ function insereProdutosNaAreaDeExibicao(prodCar) {
     const botaoFechar = document.createElement('button');
     botaoFechar.classList.add('btn', 'btn-danger', 'botao-remover-do-carrinho');
     botaoFechar.innerText = 'x';
+    botaoFechar.title = 'Remover'
     botaoFechar.onclick = function(){
         this.parentNode.remove();
         carrinhoDeProdutos = carrinhoDeProdutos.filter(indice => {
@@ -306,4 +311,24 @@ const mostraProdsNoCarrinho = take('#num-prods-no-carrinho');
 function addProdutoNoCarrinho(prodNoCarrinho) {
     carrinhoDeProdutos.push(prodNoCarrinho);
     areaDeExibicaoItensCarrinho.appendChild( insereProdutosNaAreaDeExibicao(carrinhoDeProdutos[carrinhoDeProdutos.length-1]) );
-}
+}})();
+
+console.log(`
+    .:Olá!:.
+
+* Tecnologias Usadas:
+    - HTML, CSS, Javascript e Bootstrap.
+
+* Objetivo da página:
+    - Simular um e-commerce responsivo.
+
+*Funcionalidades objetivas e técnicas:
+    - Simular um e-commerce com a possibilidade de escolher um produto e inseri-lo no carrinho de compras;
+    - O Carrinho só aparece quando há no mínimo 1 produto inserido e desaparece quando todos os produtos são removidos;
+    - É permitido clicar no ícone do carrinho para ver quais foram os produtos nele inseridos e remover os produtos que desejar;
+    - Para além do ícone do carrinho e do botão de "Adicionar ao carrinho" presente em cada item, os botões/dropdowns de "Filtro" e "Serviços" também possuem interações (são exibidos apenas no modo responsívo para dispositivos móveis);
+    - A inserção dos produtos no Carrinho ocorre por meio da leitura de um array que é preenchido conforme o usuário escolhe o(s) produto(s);
+    - Assim que o array do Carrinho recebe o produto, o quadro de exibição dos produtos no carrinho faz a leitura e os exibe para o usuário;
+    - Os produtos que já são exibidos na DOM quando a página é renderizada também são inseridos via Javascript e estão armazanados também em um array (distindo do array do carrinho, obviamente);
+    - Essas duas formas anteriores de uso de array são feitas para facilitar um possível envio dos dados ao back-end e não depender exclusivamente de dados presentes em elementos na DOM.
+`)

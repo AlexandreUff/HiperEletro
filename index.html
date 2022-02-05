@@ -31,10 +31,10 @@
 
         <div class="row align-items-center">
             <div class="col-xl-2 col-md-4  col-8 order-2 order-xl-1">
-                <img class="img-fluid" src="./design/logo-main.png" alt="Logo da Hiper Elétro">
+                <img class="img-fluid" src="./design/logo-main.png" alt="Logo da Hiper Elétro" title="Hiper Elétro">
             </div>
 
-            <div class="col-xl-2 col-md-4 order-xl-2 order-3">
+            <div class="col-xl-2 col-md-4 order-xl-2 order-3" title="Endereço de entrega">
                 <img src="./design/location_on_white_24dp.svg" alt="Localização"> <strong>Olá,</strong><br> Selecione
                 seu endereço
             </div>
@@ -44,7 +44,7 @@
                     <input id="input-pesquisa" type="text" class="form-control" placeholder="" aria-label="Username"
                         aria-describedby="basic-addon1">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">
+                        <span class="input-group-text" id="basic-addon1" title="Pesquisar produto(s)">
                             <img src="./design/search_black_24dp.svg" alt="Lupa">
                         </span>
                     </div>
@@ -54,7 +54,7 @@
             <div
                 class="col-xl-2 mb-md-3 col-md-4 col-sm-12 order-sm-1 d-flex justify-content-end order-xl-4 order-md-3">
                 <img src="./design/account_circle_white_24dp.svg" alt="Avatar">
-                <span>Olá, Usuário</span>
+                <a title="Ver perfil do usuário">Olá, Usuário</a>
             </div>
 
         </div>
@@ -63,15 +63,15 @@
     <nav class="container-fluid bg-success my-1 text-light main-nav d-flex justify-content-end d-sm-block">
         <div class="d-none d-sm-block container bg-warning">
             <ul class="d-flex align-items-center justify-content-around">
-                <li>Categorias</li>
-                <li>Ofertas do Dia</li>
-                <li>Venda conosco</li>
-                <li>Contato</li>
-                <li>Outros</li>
+                <li ><a title="Categorias">Categorias</a></li>
+                <li><a title="Ofertas do dia">Ofertas do Dia</a></li>
+                <li><a title="Venda conosco">Venda conosco</a></li>
+                <li><a title="Contato">Contato</a></li>
+                <li><a title="Outros">Outros</a></li>
             </ul>
         </div>
 
-        <div class="dropdown d-sm-none mb-2 p-1">
+        <div class="dropdown d-sm-none mb-2 p-1" title="Serviços">
             <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
@@ -108,9 +108,8 @@
         <div class="row">
 
             <!-- Este dropdown só aparece na tela sm -->
-            <!--Adicionar-->
 
-            <div id="botao-filtro" class="dropdown d-sm-none mb-2">
+            <div id="botao-filtro" class="dropdown d-sm-none mb-2" title="Filtros">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -159,10 +158,6 @@
                                 d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                         </svg><a class="dropdown-item">Outros</a></li>
 
-                    <!-- <li>
-                            <div class="dropdown-divider"></div>
-                        </li> -->
-
                 </ul>
             </div>
 
@@ -172,33 +167,33 @@
                 <nav class="text-secondary">
                     <p><strong>Geral</strong></p>
                     <ul>
-                        <li>Acesórios</li>
-                        <li>Componentes</li>
-                        <li>Notebooks</li>
-                        <li>Desktops</li>
-                        <li>Ferramentas</li>
-                        <li>Monitores</li>
-                        <li>Celulares</li>
-                        <li>Impressoras</li>
-                        <li>Outros</li>
+                        <li><a title="Acessórios">Acesórios</a></li>
+                        <li><a title="Componentes">Componentes</a></li>
+                        <li><a title="Notebooks">Notebooks</a></li>
+                        <li><a title="Desktops">Desktops</a></li>
+                        <li><a title="Ferramentas">Ferramentas</a></li>
+                        <li><a title="Monitores">Monitores</a></li>
+                        <li><a title="Celulares">Celulares</a></li>
+                        <li><a title="Impressoras">Impressoras</a></li>
+                        <li><a title="Outros">Outros</a></li>
                     </ul>
 
                     <p><strong>Preço</strong></p>
                     <ul>
-                        <li>Até R$100</li>
-                        <li>R$100 a R$500</li>
-                        <li>R$500 a R$1000</li>
-                        <li>R$1000 a R$5000</li>
-                        <li>Acima de R$5000</li>
+                        <li><a title="Até R$100">Até R$100</a></li>
+                        <li><a title="R$100 a R$500">R$100 a R$500</a></li>
+                        <li><a title="R$500 a R$1000">R$500 a R$1000</a></li>
+                        <li><a title="R$1000 a R$5000">R$1000 a R$5000</a></li>
+                        <li><a title="Acima de R$5000">Acima de R$5000</a></li>
                     </ul>
 
                     <p><strong>Lançamento</strong></p>
                     <ul>
-                        <li>Até 1 mês</li>
-                        <li>Até 6 meses</li>
-                        <li>Até 1 ano</li>
-                        <li>Até 2 anos</li>
-                        <li>Até 5 anos</li>
+                        <li><a title="Até 1 mês">Até 1 mês</a></li>
+                        <li><a title="Até 6 meses">Até 6 meses</a></li>
+                        <li><a title="Até 1 ano">Até 1 ano</a></li>
+                        <li><a title="Até 2 anos">Até 2 anos</a></li>
+                        <li><a title="Até 5 anos">Até 5 anos</a></li>
                     </ul>
                 </nav>
             </aside>
@@ -207,17 +202,6 @@
 
                 <div id="area-produtos" class="d-flex flex-wrap justify-content-around pt-2">
                     <!--Aqui é o local onde são inseridos os produtos-->
-
-                    <!--                     <div class="card produto" style="width: 18rem;">
-                        <img class="card-img-top" src="./design/imgs-produtos/200x136/pexels-kinkate-205926.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title">MX-Gold Premium V9.5</h5>
-                          <p class="card-text"><strong>R$ 199,99</strong></p>
-                          <p class="card-text">em 10x de R$ 19 <sup>99</sup></p>
-                          <a href="#" class="btn btn-success">Comprar</a>
-                          <a href="#" class="btn btn-primary"> <img src="./design/local_grocery_store_white_24dp.svg" alt="Carrinho"> </a>
-                        </div>
-                    </div> -->
 
                 </div>
             </section>
@@ -259,9 +243,9 @@
                     </li>
                 </ul>
             </nav>
-            <div class="col-12 my-5 my-md-0 col-md-4 text-center">
-                <small>Créditos das imagens:</small><br>
-                <small>Kinkate (Pexels)</small>
+            <div class="col-12 my-5 my-md-0 col-md-4 text-center" title="Créditos pelas imagens: Kinkate; lilartsy; karsten madsen; Olenka; Aditya; Stas; Tuur; Josh Sorenson; cottonbro.">
+                <small>Créditos das imagens pelo Pexels:</small><br>
+                <small>(Passe o mouse aqui para ver os nomes)</small>
             </div>
             <div class="col-12 col-md-4 text-center">
                 <small>&copy;2022 - Alexandre Magno Dias</small>
@@ -270,8 +254,8 @@
     </footer>
 
     <!-- Ícone carrinho flutuante -->
-    <div id="icone-carrinho" class="carrinho-fixed bg-danger">
-        <img src="./design/local_grocery_store_white_24dp.svg" alt="Seu carrinho">
+    <div id="icone-carrinho" class="carrinho-fixed bg-danger" title="Seu Carrinho">
+        <img src="./design/local_grocery_store_white_24dp.svg" alt="Seu Carrinho">
         <p id="num-prods-no-carrinho">0</p>
     </div>
 
@@ -279,7 +263,7 @@
         <p class="bg-secondary text-white p-1 d-flex align-items-center justify-content-center"><img
                 src="./design/local_grocery_store_white_24dp.svg" alt="Carrinho"> MEU CARRINHO</p>
         
-        <button id="botao-fechar-carrinho" class="btn btn-dark" type="submit">
+        <button id="botao-fechar-carrinho" class="btn btn-dark" type="submit" title="Ocultar carrinho">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
               </svg>
@@ -288,39 +272,18 @@
         <div id="area-produtos-do-carrinho">
             <!-- Aqui os "produtos no carrinho" são inseridos via JS" -->
 
-            <!-- <div class="card">
-                <div class="card-body d-flex p-1 align-items-center">
-                  <img src="./design/imgs-produtos/100x68/pexels-kinkate-205926.jpg" width="50px" height="39px" alt="Imagem do produto">
-                  <div>MX-Gold Premium V9.5</div>
-                </div>
-                <button type="button" class="btn btn-danger botao-remover-do-carrinho">x</button>
-            </div> -->
         </div>
 
         <div id="finalizar-carrinho" class="w-100 p-1 border-top">
-            <button type="button" class="btn btn-success w-100 d-flex align-items-center justify-content-center"><svg
+            <button type="button" class="btn btn-success w-100 d-flex align-items-center justify-content-center" title="Finalizar compra"><svg
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-check-circle mx-1" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                     <path
                         d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-                </svg> Comprar tudo!</button>
+                </svg> Finalizar Compra</button>
         </div>
     </div>
 </body>
 
 </html>
-
-<!--
-    Agradecimentos:
-        Kinkate
-        lilartsy
-        karsten madsen
-        Olenka
-        Aditya
-        Stas
-        Tuur
-        Josh Sorenson
-        cottonbro
-
--->

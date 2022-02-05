@@ -1,7 +1,3 @@
-/* header.container-fluid img {
-    max-width: 300px;
-} */
-
 .main-nav ul > li, main aside > nav > ul > li, footer nav > ul > li {
     list-style: none;
     cursor: pointer;
@@ -10,6 +6,7 @@
 main aside > nav > ul {
     font-size: 0.8rem;
     padding-left: 5px;
+    line-height: 25px;
 }
 
 .produto {
@@ -116,12 +113,17 @@ main aside > nav > ul {
     z-index: 1;
 }
 
-/*--------------------Manter este item ao final-------------------*/
+@media (max-height: 400px){
+    .caixa-carrinho{
+        top: 35px;
+    }
+}
+
+/*----Manter este item ao final----*/
 .position-right{
     right: 0px;
 }
 
 .carrinho-fixed:hover, #botao-fechar-carrinho:hover {
     transform: scale(1.2);
-    transition: 0.25s;
 }
